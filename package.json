@@ -7,6 +7,7 @@
     "eslint-config-prettier": "^2.9.0",
     "eslint-plugin-prettier": "^2.6.2",
     "flow-bin": "^0.78.0",
+    "gh-pages": "^1.2.0",
     "jss": "^9.8.7",
     "jss-preset-default": "^4.5.0",
     "prettier": "^1.14.2",
@@ -15,9 +16,12 @@
     "react-scripts": "1.1.4"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
-  }
+  },
+  "homepage": "https://fterh.github.io/kopi-guru"
 }
