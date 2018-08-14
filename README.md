@@ -2,6 +2,10 @@
 ## About
 This is just a silly project I built in a day for laughs and giggles. 
 
+## Releases
+### v1.0
+* Initial release
+
 ## Technologies
 * React
 * Flow
