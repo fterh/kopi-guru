@@ -5,6 +5,7 @@ import type State from './../Body';
 export default function(state: State) {
   let baseString: string = '';
   let iceString: string = '';
+  let pulledString: string = '';
   let milkString: string = '';
   let brewString: string = '';
   let sugarString: string = '';
@@ -12,6 +13,10 @@ export default function(state: State) {
   switch (state.base) {
     case 'coffee':
       baseString = 'Kopi';
+      break;
+
+    case 'tea':
+      baseString = 'Teh';
       break;
 
     default:
@@ -25,6 +30,19 @@ export default function(state: State) {
 
     case false:
       iceString = '';
+      break;
+
+    default:
+      break;
+  }
+
+  switch (state.pulled) {
+    case true:
+      pulledString = 'tarik';
+      break;
+
+    case false:
+      pulledString = '';
       break;
 
     default:
@@ -86,5 +104,5 @@ export default function(state: State) {
       break;
   }
 
-  return `${baseString} ${milkString} ${sugarString} ${brewString} ${iceString}`;
+  return `${baseString} ${milkString} ${sugarString} ${brewString} ${pulledString} ${iceString}`;
 }
