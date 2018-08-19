@@ -6,6 +6,7 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
+import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import Radio from '@material-ui/core/Radio';
@@ -22,8 +23,9 @@ type Props = {
 };
 
 export type State = {
-  base: 'coffee',
+  base: 'coffee' | 'tea',
   ice: boolean,
+  pulled: boolean,
   milk: 'none' | 'condensed' | 'evaporated',
   brew: 'weak' | 'default' | 'strong',
   sugar: 'none' | 'less' | 'default' | 'more'
@@ -35,6 +37,7 @@ class Body extends Component<Props, State> {
     this.state = {
       base: 'coffee',
       ice: false,
+      pulled: false,
       milk: 'condensed',
       brew: 'default',
       sugar: 'default'
@@ -69,24 +72,47 @@ class Body extends Component<Props, State> {
                   row
                   name="base"
                   value={this.state.base}
-                  // onChange={this.handleChange('color')}
+                  onChange={(event, value) => {
+                    this.handleChange('base')(event, value);
+                    if (value === 'coffee') {
+                      this.handleChange('pulled')(null, false);
+                    }
+                  }}
                 >
                   <FormControlLabel
                     value="coffee"
                     control={<Radio />}
                     label="Coffee"
                   />
+                  <FormControlLabel
+                    value="tea"
+                    control={<Radio />}
+                    label="Tea"
+                  />
                 </RadioGroup>
-                <FormControlLabel
-                  control={
-                    <Checkbox
-                      checked={this.state.ice}
-                      onChange={this.handleChange('ice')}
-                      value="ice"
-                    />
-                  }
-                  label="Ice"
-                />
+                <FormGroup row>
+                  <FormControlLabel
+                    control={
+                      <Checkbox
+                        checked={this.state.ice}
+                        onChange={this.handleChange('ice')}
+                        value="ice"
+                      />
+                    }
+                    label="Ice"
+                  />
+                  <FormControlLabel
+                    control={
+                      <Checkbox
+                        checked={this.state.pulled}
+                        disabled={this.state.base !== 'tea'}
+                        onChange={this.handleChange('pulled')}
+                        value="pulled"
+                      />
+                    }
+                    label="Pulled"
+                  />
+                </FormGroup>
               </FormControl>
             </Grid>
             <Grid item xs={12}>
