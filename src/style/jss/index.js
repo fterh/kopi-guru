@@ -17,7 +17,7 @@ const styles = {
     color: constants.brown,
     fontSize: '0.9em',
     textAlign: 'center',
-    lineHeight: '0.5em',
+    lineHeight: '1.2em',
     '& a': {
       color: constants.brown,
       '&:hover': {
