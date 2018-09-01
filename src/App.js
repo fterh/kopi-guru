@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Body from './Body';
+import Footer from './Footer';
 
 import styleClasses from './style/jss';
 
@@ -16,9 +17,15 @@ class App extends Component {
     return (
       <div className={styleClasses.app}>
         <header className={styleClasses.header}>
-          <h1>Kopi Guru</h1>
+          <h1>
+            <span role="img" aria-label="coffee">
+              ☕
+            </span>{' '}
+            Kopi Guru ☕
+          </h1>
         </header>
         <Body />
+        <Footer />
       </div>
     );
   }

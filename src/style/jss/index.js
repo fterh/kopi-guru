@@ -1,6 +1,8 @@
 import jss from 'jss';
 import preset from 'jss-preset-default';
 
+import constants from './../constants';
+
 jss.setup(preset());
 
 const styles = {
@@ -10,6 +12,18 @@ const styles = {
   },
   header: {
     textAlign: 'center'
+  },
+  footer: {
+    color: constants.brown,
+    fontSize: '0.9em',
+    textAlign: 'center',
+    lineHeight: '0.5em',
+    '& a': {
+      color: constants.brown,
+      '&:hover': {
+        color: constants.lightBrown
+      }
+    }
   }
 };
 
